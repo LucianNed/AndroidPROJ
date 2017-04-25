@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Reversi</string>
+
+    <!--  Config -->
+    <string name="config_alias_desc">Alias indentificatiu</string>
+    <string name="config_alias_edit">Peabody</string>
+    <string name="config_size_desc">Mida Graella</string>
+    <string name="config_size_s">4</string>
+    <string name="config_size_m">6</string>
+    <string name="config_size_l">8</string>
+    <string name="config_time_desc">Control de temps (Mida * 15s)</string>
+    <string name="config_game_start">Començar</string>
+
+    <!--  Help -->
+    <string name="help_welcome">Benvingut al Reversi!</string>
+    <string name="help_text">
+            El joc consisteix en omplir el tauler amb el maxim nombre de
+        fitxes del teu color(negre), fent girar les fitxes de l"'"opponent
+        que son blanques.
+            A cada torn el jugador col-loca una fitxa en una casella buida,
+        de manera que entre aquesta i una altra del mateix color s"'"encercli
+        una o mes fitxes de l"'"opponent. Les fitxes entre ambdues queden
+        automaticament convertides al color de qui ha tirat.
+            Les linies compten en horizontal, diagonal i vertical. Una mateixa
+        fitxa pot capturar peces en diferents linies, si aconsegueix
+        encerclar-les d"'"aquest mateix color.
+            Si un jugar no pot col-locar cap fitxa de la manera descrita,
+        perd el torn. Continua l"'"alternança fins que cap dels dos pot
+        col-locar una fitxa o be tot el tauler ha quedat cobert de fitxes.
+            Guanya el jugador que ha aconseguit col-locar mes fitxes del seu
+        color.</string>
+    <string name="help_back">Anar al joc</string>
+
+    <!--  First -->
+    <string name="first_help">Ajuda</string>
+    <string name="first_start">Nova Partida</string>
+    <string name="first_exit">Sortir</string>
+
+    <!--  Game -->
+    <string name="game_title">Partida en Marxa</string>
+    <string name="game_s_left">\'%s\' caselles pendents</string>
+    <string name="game_time">\'%s\' secs</string>
+    <string name="game_turn">Torn de \'%s\'</string>
+    <string name="game_score_player">Tu: \'%s\'</string>
+    <string name="game_score_npc">Opponent: \'%s\'</string>
+    <string name="game_results">Resultats></string>
+
+    <!--  Results -->
+    <string name="results_title">Resultats de la Partida</string>
+    <string name="results_time">Dia i hora</string>
+    <string name="results_log">Valors del Log</string>
+    <string name="results_email">E-mail destinatari</string>
+    <string name="results_b_send">Enviar</string>
+    <string name="results_b_new">Nova partida</string>
+    <string name="results_fakemail">fakemail@gmail.com</string>
+
+</resources>

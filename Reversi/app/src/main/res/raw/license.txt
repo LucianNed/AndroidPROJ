@@ -1,0 +1,23 @@
+Sound pack downloaded from Freesound.org
+----------------------------------------
+
+This pack of sounds contains sounds by the following user:
+ - budgerigar42 ( https://www.freesound.org/people/budgerigar42/ )
+
+You can find this pack online at:
+https://www.freesound.org/people/budgerigar42/packs/15709/
+
+License details
+---------------
+
+Creative Commons 0: http://creativecommons.org/publicdomain/zero/1.0/
+
+
+Sounds in this pack
+-------------------
+
+  * 256142__budgerigar42__turret-ow.wav       (renamed to owowow.wav)
+    * url: https://www.freesound.org/s/256142/
+    * license: Creative Commons 0
+
+

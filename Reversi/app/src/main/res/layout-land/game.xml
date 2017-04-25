@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <GridView
+                android:id="@+id/grid"
+                android:layout_height="match_parent"
+                android:stretchMode="spacingWidthUniform"
+                android:gravity="center"
+                android:layout_width="300dp">
+            </GridView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/game_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/game_title"
+                android:layout_weight="1"
+                android:textStyle="normal|bold"
+                android:paddingBottom="10dp"
+                android:paddingTop="5dp"
+                android:textSize="18sp"
+                android:paddingStart="10dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:text="@string/game_s_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/game_s_left"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:text="@string/game_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/game_time"
+                    android:layout_weight="1"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <TextView
+                android:text="@string/game_turn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/game_turn"
+                android:layout_weight="1"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:paddingLeft="5dp"
+                android:gravity="center"
+                android:textStyle="normal|bold"
+                android:textSize="18sp" />
+
+            <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingBottom="5dp"
+                android:paddingEnd="5dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:text="@string/game_score_player"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/game_score_player"
+                    android:layout_weight="4"
+                    android:textSize="18sp"
+                    android:background="@color/colorPLAYER"
+                    android:paddingStart="5dp"
+                    android:gravity="center" />
+                <TextView
+                    android:text="@string/game_score_npc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/game_score_npc"
+                    android:layout_weight="3.5"
+                    android:textSize="18sp"
+                    android:background="@color/colorNPC"
+                    android:paddingStart="5dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/game_results"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="clickResults"
+                    android:text="@string/game_results" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

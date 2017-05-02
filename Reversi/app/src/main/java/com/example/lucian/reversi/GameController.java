@@ -10,8 +10,7 @@ import java.util.TimerTask;
 
 public class GameController {
 
-    protected static int TURN_PLAYER = 99;
-    protected static int TURN_ATLAS = 66;
+
     protected String player_name = "Peabody";
     protected int grid_size = 4;
     protected int timer_on = 0;

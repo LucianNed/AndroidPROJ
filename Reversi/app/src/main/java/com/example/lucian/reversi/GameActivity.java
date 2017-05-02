@@ -15,6 +15,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.example.lucian.reversi.GameModel.*;
 
 import java.util.ArrayList;
 
@@ -34,6 +35,7 @@ public class GameActivity extends AppCompatActivity {
     protected static final String G_TIME = "000";
     protected static final String G_NAME = "001";
     protected static final String G_GRID = "010";
+    private static final String G_REASON = "110";
 
     protected int grid_size;
     protected boolean game_timer;
@@ -41,7 +43,6 @@ public class GameActivity extends AppCompatActivity {
     protected String game_player;
     protected GameModel game_model;
     protected String current_turn;
-    protected GameTimer game_clock;
     private MediaPlayer player;
 
     @Override
@@ -84,18 +85,17 @@ public class GameActivity extends AppCompatActivity {
         //time text
         TextView time_t = (TextView) findViewById(R.id.game_time);
         //start the clock
-        game_clock = new GameTimer();
-        game_clock.start();
-        if (game_timer) {
+        int t_limit = grid_size * 15;
+        if (!game_timer) {
+            t_limit = 0;
             String t = "∞ ";
             String m_t =
                     String.format(templateInitialTime, t);
             time_t.setText(m_t);
         } else {
-            int t = grid_size * 15;
-
+            t_limit = grid_size * 15;
             String m_t =
-                    String.format(templateInitialTime, String.valueOf(t));
+                    String.format(templateInitialTime, String.valueOf(t_limit));
             time_t.setText(m_t);
         }
         //turn text
@@ -132,6 +132,9 @@ public class GameActivity extends AppCompatActivity {
                 game_model.getPieces(GameModel.NPC), game_model.getPieces(GameModel.PCp),
                 game_model.getPieces(GameModel.NPCp)));
         grid.setOnItemClickListener(new GridInfo());
+
+        current_turn = game_model.PC;
+        game_model.playGame(t_limit);
 
     }
 
@@ -174,7 +177,6 @@ public class GameActivity extends AppCompatActivity {
     // to skip straight to the results screen
     public void clickResults(View src) {
         //stop clock
-        game_clock.stop();
         Intent i = new Intent(this, ResultsActivity.class);
         //load data
         i.putExtra(G_NAME, this.game_player);
@@ -182,7 +184,8 @@ public class GameActivity extends AppCompatActivity {
         i.putExtra(G_REMAINING, this.getRemaining());
         i.putExtra(G_PLAYER_LIST, this.game_model.getPlayerCount());
         i.putExtra(G_NPC_LIST, this.game_model.getNPCCount());
-        i.putExtra(G_TIME, this.getTimeElapser());
+        i.putExtra(G_TIME, game_model.getTimeElapsed());
+        i.putExtra(G_REASON, game_model.getReason());
         startActivity(i);
         finish();
     }
@@ -198,12 +201,7 @@ public class GameActivity extends AppCompatActivity {
         return this.game_model.getRemainingCount();
     }
 
-    public int getTimeElapser() {
-        Double d = game_clock.getSeconds();
-        Long l = Math.round(d);
-        int i = Integer.valueOf(l.intValue());
-        return i;
-    }
+
 
     protected class ReversiAdapter extends BaseAdapter {
 
@@ -274,7 +272,8 @@ public class GameActivity extends AppCompatActivity {
             //play game and stuff
             if (checkCell(position)) {
                 //play sound
-                game_model.flipPiece(game_model.parsePosition(position));
+                game_model.setPlayerMove(game_model.parsePosition(position));
+                game_model.move =1;
                 playSound(R.raw.good_click);
             } else {
                 playSound(R.raw.wrong_click);
@@ -284,23 +283,4 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    private class GameTimer {
-        private long begin, end;
-
-        public void start() {
-            begin = System.currentTimeMillis();
-        }
-
-        public void stop() {
-            end = System.currentTimeMillis();
-        }
-
-        public long getTime() {
-            return end - begin;
-        }
-
-        public double getSeconds() {
-            return (end - begin) / 1000.0;
-        }
-    }
 }

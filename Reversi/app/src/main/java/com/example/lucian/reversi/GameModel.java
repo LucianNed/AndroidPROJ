@@ -1,6 +1,9 @@
 package com.example.lucian.reversi;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by lucian on 30/03/17.
@@ -12,24 +15,27 @@ public class GameModel {
     protected final static String NPC = "NPC";
     protected final static String PCp = "PLAYER_POSSIBLE";
     protected final static String NPCp = "NPC_POSSIBLE";
-    private final static int BACKWARDS = -1;
-    private final static int FORWARDS = +1;
-    private final static String VERTICAL = "v";
-    private final static String HORIZONTAL = "h";
-    private final static String DIAGONAL = "d";
+    private static final String R_BLOCK = "cant move";
+    private static final String R_TIMEOUT = "out of time";
+
+
     private ArrayList<Coordinates> NPC_pieces;          //computer
     private ArrayList<Coordinates> PLAYER_pieces;       //player
     private ArrayList<Coordinates> PLAYER_possible_moves;      //possible blue 
     private ArrayList<Coordinates> NPC_possible_moves;      //possible orange
     private int size;                                   //grid length
+    public int move = 0;
+    private Coordinates last_move;
+    private GameTimer clock = new GameTimer();
+    private String reason;
 
     //create model
     protected GameModel(int size, ArrayList<Coordinates> player, ArrayList<Coordinates> npc) {
         this.size = size;
         this.NPC_pieces = (player == null) ? new ArrayList<Coordinates>() : player;
         this.PLAYER_pieces = (npc == null) ? new ArrayList<Coordinates>() : npc;
-        this.PLAYER_possible_moves = new ArrayList<Coordinates>();
-        this.NPC_possible_moves = new ArrayList<Coordinates>();
+        this.PLAYER_possible_moves = new ArrayList<>();
+        this.NPC_possible_moves = new ArrayList<>();
         this.setInitialModel(size);
     }
 
@@ -369,7 +375,7 @@ public class GameModel {
         return flip_pieces_V;
     }
 
-    protected ArrayList<Coordinates> countFlipPieces(Coordinates selected, String turn) {
+    protected ArrayList<Coordinates> getAllFlipPieces(Coordinates selected, String turn) {
         ArrayList<Coordinates> flip_pieces = new ArrayList<>();
         //calculate vertical
         for (Coordinates v : getFlippPiecesV(selected, turn)) {
@@ -402,16 +408,141 @@ public class GameModel {
         }
     }
 
-    public boolean checkPlayerPiece(Coordinates c) {
+    protected int getTimeElapsed(){
+        clock.stop();
+        return clock.getTimeElapsed();
+    }
+
+    //reversi logic
+    public void playGame(int time_left){
+
+        clock.start();
+
+        Boolean GAME_OVER = false;
+        while (!GAME_OVER) {
+            if (!getRemaining())
+                GAME_OVER = true;
+            ArrayList<Coordinates>players_moves = playersTurn();
+            if (players_moves.size()>0) {
+                while (move == 0) {
+                    try {
+                        TimeUnit.SECONDS.sleep(10);
+                        if (!clock.checkClock(time_left))
+                            GAME_OVER = true;
+                            setReason(R_TIMEOUT);
+                    } catch (InterruptedException e) {
+                        //exception
+                    }
+                    //wait
+                }
+                applyPlayerChoice(getPlayerMove() ,PC);
+            }
+            ArrayList<Coordinates> npc_moves = npcsTurn();
+            if (npc_moves.size()>0){
+                //pick the best move
+                applyPlayerChoice(getBestMove(npc_moves) ,NPC);
+            }else{
+                if(checkForBlock(players_moves,npc_moves))
+                    GAME_OVER = true;
+                    setReason(R_BLOCK);
+            }
+
+            }
+
+        }
+
+
+    protected boolean checkForBlock(ArrayList<Coordinates> player_moves, ArrayList<Coordinates> npc_moves){
+        if (player_moves.size() == 0 && npc_moves.size() == 0){
+            return true;
+        }
+        return false;
+    }
+
+    //reason why game over
+    protected String getReason(){
+        return reason;
+    }
+
+    protected void setReason(String s){
+        this.reason = s;
+    }
+
+    protected boolean getRemaining(){
+        if(getRemainingCount()==0){
+            setReason("Grid Full");
+            return false;
+        }
+        return true;
+    }
+
+    protected ArrayList<Coordinates> playersTurn(){
+        //set turn to player
+        resetPlayerMoves();
+        //find the possible moves for the player
+        return getPossibleMoves(this.PLAYER_pieces, PC);
+    }
+
+    protected ArrayList<Coordinates> npcsTurn() {
+        //set turn to npc
+        resetNPCMoves();
+        //find the possible moves for the npc
+        return getPossibleMoves(this.PLAYER_pieces, PC);
+    }
+
+    protected void resetPlayerMoves() {
+        this.PLAYER_possible_moves = new ArrayList<>();
+    }
+
+    protected void resetNPCMoves() {
+        this.NPC_possible_moves = new ArrayList<>();
+    }
+
+    protected void applyPlayerChoice(Coordinates c,String turn){
+        //update clock
+        ArrayList<Coordinates> all_flip = getAllFlipPieces(c, turn);
+        flipPieces(all_flip);
+    }
+
+    //obtain the player pressed buton
+    protected Coordinates getPlayerMove(){
+        return last_move;
+    }
+    //set the player pressed buton
+    protected void setPlayerMove(Coordinates c){
+        last_move = c;
+    }
+
+    //npc ai
+    protected Coordinates getBestMove(ArrayList<Coordinates> pieces){
+        ArrayList<Integer> move_value = new ArrayList<>();
+
+        for (Coordinates c: pieces) {
+            int value = 0;
+            value+=getFlippPiecesV(c, NPC).size();
+            value+=getFlippPiecesD(c, NPC).size();
+            value+=getFlippPiecesH(c, NPC).size();
+            move_value.add(value,parseCoordinates(c));
+        }
+        int max = Collections.max(move_value);
+        int pos = move_value.indexOf(max);
+
+        return parsePosition(pos);
+    }
+
+    public boolean checkIfPlayerPiece(Coordinates c) {
         return this.PLAYER_pieces.contains(c);
     }
 
-    public boolean checkNPCPiece(Coordinates c) {
+    public boolean checkIfNPCPiece(Coordinates c) {
         return this.NPC_pieces.contains(c);
     }
 
     public boolean checkPlayerPossible(Coordinates c) {
         return this.PLAYER_possible_moves.contains(c);
+    }
+    public boolean checkIfNPCPossible(Coordinates c) {
+        return this.NPC_possible_moves.contains(c);
     }
 
     public boolean checkNPCPossible(Coordinates c) {
@@ -456,22 +587,57 @@ public class GameModel {
         return result;
     }
 
-    //calculate pieces in between
 
-    //change pieces in between
-
-
-    public class Coordinates {
+    //extra
+    protected class Coordinates {
 
         private int row;                          //position x
         private int col;                          //position y
 
-        public Coordinates(int row, int col) {
+        protected Coordinates(int row, int col) {
             this.row = row;
             this.col = col;
         }
 
 
+    }
+
+    //extra
+    protected class GameTimer {
+        private long begin, end;
+
+        public void start() {
+            begin = System.currentTimeMillis();
+        }
+
+        public void stop() {
+            end = System.currentTimeMillis();
+        }
+
+        public long getTime() {
+            return end - begin;
+        }
+
+        public double getSeconds() {
+            return (end - begin) / 1000.0;
+        }
+
+        public int getTimeElapsed() {
+            Double d = this.getSeconds();
+            Long l = Math.round(d);
+            int i = Integer.valueOf(l.intValue());
+            return i;
+        }
+
+        public boolean checkClock(int time_max) {
+            this.stop();
+            if (time_max>0){
+                if ((time_max-getTimeElapsed()) <= 0){
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 
 }

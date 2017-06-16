@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--  Alias -->
+    <EditTextPreference
+        android:key="option1"
+        android:title="ALIAS"
+        android:summary="introduzca su alias"
+    />
+    <!--  Timer -->
+    <CheckBoxPreference
+        android:key="option2"
+        android:title="TIMER"
+        android:summary="quiere o no control de tiempo"
+    />
+    <!--  Grid -->
+    <ListPreference
+        android:key="option3"
+        android:title="SIZE"
+        android:summary="selecione el tamaño de la graella"
+        android:dialogTitle="longitud:"
+        android:entries="@array/sizes"
+        android:entryValues="@array/grid_sizes"
+    />
+
+
+</PreferenceScreen>

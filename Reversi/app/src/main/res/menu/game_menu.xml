@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/game_restart"
+        android:orderInCategory="2"
+        android:title="@string/menu_restart" />
+    <item
+        android:id="@+id/game_giveup"
+        android:orderInCategory="3"
+        android:title="@string/menu_giveup" />
+</menu>

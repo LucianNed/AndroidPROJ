@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="horizontal" >
+
+    <fragment class="com.example.lucian.reversi.GridFragment"
+        android:layout_height="match_parent"
+        android:layout_width="0px"
+        android:layout_weight="60"
+        android:id="@+id/FrgGrid"   />
+
+    <fragment class="com.example.lucian.reversi.LogFragment"
+        android:layout_height="match_parent"
+        android:layout_width="0px"
+        android:layout_weight="40"
+        android:id="@+id/FrgLog"    />
+
+</LinearLayout>

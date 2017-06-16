@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:orientation="vertical"
         android:paddingTop="50dp">
 
@@ -18,44 +18,48 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:elevation="10dp"
             android:gravity="center"
             android:onClick="clickHelp"
-            android:elevation="10dp"
-            android:theme="@style/MyButton"
-            android:text="@string/first_help" />
+            android:text="@string/first_help"
+            android:textSize="20sp"
+            android:theme="@style/MyButton" />
 
         <Button
             android:id="@+id/first_start"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:elevation="10dp"
             android:gravity="center"
             android:onClick="clickStart"
-            android:elevation="10dp"
-            android:theme="@style/MyButton"
-            android:text="@string/first_start" />
+            android:text="@string/first_start"
+            android:textSize="20sp"
+            android:theme="@style/MyButton" />
 
         <Button
             android:id="@+id/first_db"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:elevation="10dp"
             android:gravity="center"
             android:onClick="clickDB"
-            android:elevation="10dp"
-            android:theme="@style/MyButton"
-            android:text="@string/first_db" />
+            android:text="@string/first_db"
+            android:textSize="20sp"
+            android:theme="@style/MyButton" />
 
         <Button
             android:id="@+id/first_exit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:elevation="10dp"
             android:gravity="center"
             android:onClick="clickExit"
-            android:elevation="10dp"
-            android:theme="@style/MyButton"
-            android:text="@string/exit" />
+            android:text="@string/exit"
+            android:textSize="20sp"
+            android:theme="@style/MyButton" />
 
     </LinearLayout>
 

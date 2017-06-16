@@ -5,6 +5,9 @@
     <color name="colorAtlas">#e9b754</color>
     <color name="colorNPC">#ffc606</color>
     <color name="colorAccent">#0e0e0e</color>
+    <color name="colorText">#263238</color>
     <color name="googleGray">#fafafa</color>
     <color name="colorWall">#f1f1f1</color>
+    <color name="colorAlert">#e57373</color>
+    <color name="materialGrey">#bdbdbd</color>
 </resources>

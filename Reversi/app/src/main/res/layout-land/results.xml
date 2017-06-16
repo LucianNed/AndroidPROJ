@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container2"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -71,6 +72,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/results_send"
+                android:elevation="10dp"
+                android:theme="@style/MyButton"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -126,6 +129,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/results_new"
+                android:elevation="10dp"
+                android:theme="@style/MyButton"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -170,10 +175,12 @@
             android:gravity="end">
 
             <Button
-                android:text="@string/first_exit"
+                android:text="@string/exit"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/results_exit"
+                android:elevation="10dp"
+                android:theme="@style/MyButton"
                 android:layout_weight="1" />
         </LinearLayout>
 

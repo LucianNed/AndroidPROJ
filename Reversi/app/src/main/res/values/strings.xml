@@ -10,6 +10,9 @@
     <string name="config_size_l">8</string>
     <string name="config_time_desc">Control de temps (Mida * 15s)</string>
     <string name="config_game_start">Començar</string>
+    <string name="menu_get_all">Totes les partides </string>
+    <string name="menu_send_mail">Enviar per correu</string>
+    <string name="menu_delete_this">Esborrar aquest</string>
 
     <!--  Help -->
     <string name="help_welcome">Benvingut al Reversi!</string>
@@ -29,21 +32,35 @@
         col-locar una fitxa o be tot el tauler ha quedat cobert de fitxes.
             Guanya el jugador que ha aconseguit col-locar mes fitxes del seu
         color.</string>
-    <string name="help_back">Anar al joc</string>
+    <string name="help_back">Tornar Menu</string>
+    <string name="back">Tornar</string>
 
     <!--  First -->
     <string name="first_help">Ajuda</string>
     <string name="first_start">Nova Partida</string>
-    <string name="first_exit">Sortir</string>
+    <string name="first_db">Consultar Partides</string>
+    <string name="exit">Sortir</string>
+    <string name="hamburger">menu</string>
+    <string name="container">container</string>
 
     <!--  Game -->
     <string name="game_title">Partida en Marxa</string>
     <string name="game_s_left">\'%s\' caselles pendents</string>
-    <string name="game_time">\'%s\' secs</string>
-    <string name="game_turn">Torn de \'%s\'</string>
-    <string name="game_score_player">Tu: \'%s\'</string>
-    <string name="game_score_npc">Opponent: \'%s\'</string>
+    <string name="game_time">\'%s\' sec. restants</string>
+    <string name="game_turn">Turno: \'%s\'</string>
+    <string name="game_score_player">Tu :  \'%s\' </string>
+    <string name="game_score_npc">Opponent : \'%s\'</string>
     <string name="game_results">Resultats></string>
+    <string name="game_ok">OK</string>
+    <string name="game_over_tie"> VAJA… HEU EMPATAT!</string>
+    <string name="game_over_win"> GAME OVER… BEN FET, HAS GUANYAT!</string>
+    <string name="game_over_loss"> GAME OVER… MALA SORT, HAS PERDUT!</string>
+    <string name="game_over_time"> Temps esgotat! Repeteix sort… </string>
+    <string name="game_over_blocked">BLOQUEIG… US HEU QUEDAT SENSE PODER MOURE CAP DELS 2!</string>
+    <string name="game_wrong_play">Casilla no valida repeteix</string>
+    <string name="menu_turn">Torn Anterior</string>
+    <string name="menu_restart">Tornar a començar</string>
+    <string name="menu_giveup">Rendeix-te</string>
 
     <!--  Results -->
     <string name="results_title">Resultats de la Partida</string>
@@ -53,5 +70,31 @@
     <string name="results_b_send">Enviar</string>
     <string name="results_b_new">Nova partida</string>
     <string name="results_fakemail">fakemail@gmail.com</string>
+
+    <!--  Log -->
+    <string name="log_alias">Alias = \'%s\'; </string>
+    <string name="log_mida">Mida graella = \'%s\'</string>
+    <string name="log_with_timer">Control de temps</string>
+    <string name="log_without_timer">Sense control de temps</string>
+    <string name="log_time_left">Temps restant = \'%s\' sec.</string>
+    <string name="log_turn">Torn: \'%s\'</string>
+    <string name="log_play">Casella seleccionada: \'%s\'</string>
+    <string name="log_remaining">Casella seleccionada: \'%s\'</string>
+    <string name="log_play_i">Templs in. tirada: \'%s\'sec; </string>
+    <string name="log_play_f">Temps fin. tirada = \'%s\' sec.</string>
+    <string name="log_separator">- - - - - - - - - - - - - - - </string>
+
+    <!-- Array -->
+    <string-array name="grid_sizes">
+        <item name="small">4</item>
+        <item name="medium">6</item>
+        <item name="large">8</item>
+    </string-array>
+    <string-array name="sizes">
+        <item name="s">petit: 4</item>
+        <item name="m">mitja: 6</item>
+        <item name="l">gran: 8</item>
+    </string-array>
+    <string name="title_activity_opciones">OpcionesActivity</string>
 
 </resources>

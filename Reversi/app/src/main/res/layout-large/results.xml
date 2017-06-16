@@ -1,151 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/container2"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingLeft="5dp">
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/results_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingTop="5dp"
+            android:text="@string/results_title"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/results_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/results_time" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/results_time_edit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rekt"
+            android:ems="10"
+            android:gravity="center_horizontal"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/results_log"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/results_log" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal">
+
+        <EditText
+            android:id="@+id/results_log_edit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rekt"
+            android:ems="10"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal">
 
         <TextView
-            android:text="@string/results_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/results_title"
-            android:gravity="center"
-            android:paddingBottom="10dp"
-            android:layout_weight="1"
-            android:paddingTop="5dp"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:text="@string/results_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/results_time"
-            android:layout_weight="1" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
-
-        <EditText
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/results_time_edit"
-            android:background="@drawable/rekt"
-            android:layout_width="250dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:text="@string/results_log"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/results_log"
-            android:layout_weight="1" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
-
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/results_log_edit"
-            android:background="@drawable/rekt" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:text="@string/results_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/results_email"
-            android:layout_weight="1" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/results_email" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal">
 
         <EditText
+            android:id="@+id/results_email_edit"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="@string/results_fakemail"
+            android:background="@drawable/rekt"
             android:ems="10"
-            android:id="@+id/results_email_edit"
-            android:background="@drawable/rekt" />
+            android:inputType="textPersonName"
+            android:text="@string/results_fakemail" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
 
 
         <Button
-            android:text="@string/results_b_send"
+            android:id="@+id/results_send"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/results_send"
             android:layout_weight="1"
             android:elevation="10dp"
-            android:theme="@style/MyButton"
-            android:onClick="clickSend" />
+            android:onClick="clickSend"
+            android:text="@string/results_b_send"
+            android:theme="@style/MyButton" />
 
         <Button
-            android:text="@string/results_b_new"
+            android:id="@+id/results_new"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/results_new"
             android:layout_weight="1"
             android:elevation="10dp"
-            android:theme="@style/MyButton"
-            android:onClick="clickNew" />
+            android:onClick="clickNew"
+            android:text="@string/results_b_new"
+            android:theme="@style/MyButton" />
 
         <Button
-            android:text="@string/exit"
+            android:id="@+id/results_exit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/results_exit"
             android:layout_weight="1"
             android:elevation="10dp"
-            android:theme="@style/MyButton"
-            android:onClick="clickExit" />
+            android:onClick="clickExit"
+            android:text="@string/exit"
+            android:theme="@style/MyButton" />
     </LinearLayout>
 
 </LinearLayout>

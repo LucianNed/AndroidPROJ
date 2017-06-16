@@ -1,42 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:paddingTop="50dp"
-        android:layout_height="wrap_content">
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:paddingTop="20dp">
 
         <Button
-            android:text="@string/first_help"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
             android:id="@+id/first_help"
-            android:layout_weight="1"
-            android:onClick="clickHelp" />
-
-        <Button
-            android:text="@string/first_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:id="@+id/first_start"
-            android:layout_weight="1"
-            android:onClick="clickStart" />
-
-        <Button
-            android:text="@string/first_exit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:id="@+id/first_exit"
             android:layout_weight="1"
-            android:onClick="clickExit" />
+            android:gravity="center"
+            android:onClick="clickHelp"
+            android:elevation="10dp"
+            android:theme="@style/MyButton"
+            android:text="@string/first_help" />
+
+        <Button
+            android:id="@+id/first_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="clickStart"
+            android:elevation="10dp"
+            android:theme="@style/MyButton"
+            android:text="@string/first_start" />
+
+        <Button
+            android:id="@+id/first_db"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="clickDB"
+            android:elevation="10dp"
+            android:theme="@style/MyButton"
+            android:text="@string/first_db" />
+
+        <Button
+            android:id="@+id/first_exit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="clickExit"
+            android:elevation="10dp"
+            android:theme="@style/MyButton"
+            android:text="@string/exit" />
 
     </LinearLayout>
 

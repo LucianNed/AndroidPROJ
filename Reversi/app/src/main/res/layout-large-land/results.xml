@@ -24,9 +24,9 @@
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:layout_marginTop="10dp">
 
         <TextView
@@ -34,14 +34,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/results_time"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:gravity="center_horizontal" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="20dp"
+        android:gravity="center">
 
         <EditText
             android:layout_height="wrap_content"
@@ -49,7 +50,8 @@
             android:ems="10"
             android:id="@+id/results_time_edit"
             android:background="@drawable/rekt"
-            android:layout_width="250dp" />
+            android:layout_width="250dp"
+            android:gravity="center_horizontal" />
     </LinearLayout>
 
     <LinearLayout
@@ -62,13 +64,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/results_log"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:gravity="center_horizontal" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:layout_marginBottom="20dp">
 
         <EditText
@@ -81,8 +84,8 @@
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
+        android:gravity="center_horizontal"
         android:layout_height="wrap_content">
 
         <TextView
@@ -90,13 +93,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/results_email"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:gravity="center_horizontal" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:layout_marginBottom="20dp">
 
         <EditText
